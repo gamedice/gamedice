@@ -30,10 +30,11 @@ class Company(models.Model):
 
 class Games(models.Model):
     name = models.CharField(max_length=200)
+    photo = models.ImageField(upload_to='images/', blank=True)
     subscribe = models.TextField()
     date_created = models.DateField()
     rating = models.FloatField()
-    count_player = models.IntegerField()
+    count_player = models.FloatField()
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     preview = models.BooleanField()
@@ -48,6 +49,7 @@ class Games(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     liked = models.JSONField(default=list, blank=True)
+    photo = models.ImageField(upload_to='images/users', blank=True)
 
     def __str__(self):
         return self.user
@@ -68,6 +70,7 @@ class Profile(models.Model):
 
 class Posts(models.Model):
     title = models.CharField(max_length=200)
+    photo = models.ImageField(upload_to='images/', blank=True)
     contain = models.TextField()
     time_created = models.DateTimeField(auto_now_add=True)
     is_published = models.BooleanField(default=False)
@@ -83,6 +86,7 @@ class Posts(models.Model):
 
 class News(models.Model):
     title = models.CharField(max_length=200)
+    photo = models.ImageField(upload_to='images/', blank=True)
     contain = models.TextField()
     time_created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
