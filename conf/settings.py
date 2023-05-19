@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'catalog.apps.CatalogConfig',
     'rest_framework',
+    'news',
+    'blog',
+    'catalog.apps.CatalogConfig',
     'django_filters',
+
 ]
 
 MIDDLEWARE = [
@@ -133,3 +136,5 @@ MEDIA_URL = '/assets/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
