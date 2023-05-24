@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django_filters import FilterSet, NumberFilter, AllValuesFilter
+from django_filters import FilterSet, NumberFilter, AllValuesFilter, ModelMultipleChoiceFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, viewsets
 from rest_framework.pagination import PageNumberPagination
@@ -13,8 +13,8 @@ from random import randint
 class GamesFilter(FilterSet):
     min_rating = NumberFilter(field_name='rating', lookup_expr='gte')
     max_rating = NumberFilter(field_name='rating', lookup_expr='lte')
-    genre_name = AllValuesFilter(field_name='genre__name')
-    company_name = AllValuesFilter(field_name='company__name')
+    genre_name = ModelMultipleChoiceFilter(field_name='genre__name', queryset=Genre.objects.all())
+    company_name = ModelMultipleChoiceFilter(field_name='company__name', queryset=Company.objects.all())
 
     class Meta:
         model = Games
@@ -68,13 +68,13 @@ class AnonsAPIView(viewsets.ReadOnlyModelViewSet):
 
 
 class RandomAPIView(viewsets.ReadOnlyModelViewSet):
-    queryset = Games.objects.all()
+    queryset = Games.objects.all().filter(preview=True)
     serializer_class = GamesSerializer
 
     def get_queryset(self):
         max_id = Games.objects.all().aggregate(max_id=Max("id"))['max_id']
         while True:
             pk = randint(1, max_id)
-            category = Games.objects.filter(pk=pk)
+            category = Games.objects.filter(pk=pk).filter(preview=True)
             if category:
                 return category

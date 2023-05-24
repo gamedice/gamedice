@@ -1,4 +1,4 @@
-.idea
+/.idea
 /_postgres
 /venv
 .DS_Store
