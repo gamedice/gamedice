@@ -14,3 +14,7 @@ class ExecutorSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorites
+        fields = '__all__'

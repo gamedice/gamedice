@@ -21,16 +21,16 @@ class GamesFilter(FilterSet):
         fields = ('name', 'min_rating', 'max_rating', 'genre_name', 'company_name')
 
 
-class GameAPIListPagination(PageNumberPagination):
-    page_size = 1
-    page_size_query_param = 'page_size'
-    max_page_size = 100
+# class GameAPIListPagination(PageNumberPagination):
+#     page_size = 1
+#     page_size_query_param = 'page_size'
+#     max_page_size = 100
 
 
 class GenreAPIView(viewsets.ReadOnlyModelViewSet):
     queryset = Genre.objects.all().order_by('name')
     serializer_class = GenreSerializer
-    pagination_class = GameAPIListPagination
+    # pagination_class = GameAPIListPagination
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name']
 
@@ -38,7 +38,7 @@ class GenreAPIView(viewsets.ReadOnlyModelViewSet):
 class CompanyAPIView(viewsets.ReadOnlyModelViewSet):
     queryset = Company.objects.all().order_by('name')
     serializer_class = CompanySerializer
-    pagination_class = GameAPIListPagination
+    # pagination_class = GameAPIListPagination
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name']
 
@@ -50,7 +50,7 @@ class GamesAPIView(viewsets.ReadOnlyModelViewSet):
     filterset_class = GamesFilter
     # filterset_fields = ['genre', 'company']
     # search_fields = ['genre__name', 'name']
-    pagination_class = GameAPIListPagination
+    # pagination_class = GameAPIListPagination
 
 
 class TopAPIView(viewsets.ReadOnlyModelViewSet):
@@ -58,13 +58,13 @@ class TopAPIView(viewsets.ReadOnlyModelViewSet):
     serializer_class = GamesSerializer
     filter_backends = [filters.OrderingFilter]
     ordering_fields = ['rating']
-    pagination_class = GameAPIListPagination
+    # pagination_class = GameAPIListPagination
 
 
 class AnonsAPIView(viewsets.ReadOnlyModelViewSet):
     queryset = Games.objects.all().filter(preview=False).order_by('name')
     serializer_class = AnonsSerializer
-    pagination_class = GameAPIListPagination
+    # pagination_class = GameAPIListPagination
 
 
 class RandomAPIView(viewsets.ReadOnlyModelViewSet):

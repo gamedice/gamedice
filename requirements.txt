@@ -4,12 +4,19 @@ cffi==1.15.1
 charset-normalizer==3.1.0
 cryptography==40.0.2
 defusedxml==0.7.1
+Deprecated==1.2.13
 Django==3.2
+django-braces==1.15.0
+django-cors-headers==4.0.0
+django-filter==23.2
+django-oauth-toolkit==2.2.0
+django-rest-framework-social-oauth2==1.1.0
 django-templated-mail==1.1.1
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2
 djoser==2.2.0
 idna==3.4
+jwcrypto==1.4.2
 oauthlib==3.2.2
 Pillow==9.5.0
 psycopg2-binary==2.9.6
@@ -22,12 +29,5 @@ requests-oauthlib==1.3.1
 social-auth-app-django==5.2.0
 social-auth-core==4.4.2
 sqlparse==0.4.4
-<<<<<<< HEAD
 urllib3==2.0.2
-
-
-=======
-django-filter==23.2
->>>>>>> main
-
-
+wrapt==1.15.0
