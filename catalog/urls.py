@@ -14,8 +14,4 @@ router.register(r'random', RandomAPIView),
 urlpatterns = [
     path('', include(router.urls)),
     # path('game/', GamesAPIView.as_view()),
-
-
-
-
 ]
