@@ -4,7 +4,7 @@ from .serializers import NewsSerializer
 from .models import News
 
 class NewsAPIList(generics.ListAPIView):
-    queryset = News.objects.all()
+    queryset = News.objects.all().order_by("-time_created")
     serializer_class = NewsSerializer
 
 class NewsAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
