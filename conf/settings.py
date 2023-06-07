@@ -38,19 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'login',
+
+    'django_filters',
+    'rest_framework',
     'rest_framework.authtoken',
     'djoser',
     'corsheaders',
     # 'oauth2_provider',
     # 'social_django',
     # 'rest_framework_social_oauth2',
-    'catalog.apps.CatalogConfig',
-    'rest_framework',
+
+    'login',
+    'catalog',
     'news',
     'blog',
-    'django_filters',
-
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-  'http://localhost:3000',
+  'http://localhost:5173',
 )
 
 ROOT_URLCONF = 'conf.urls'
@@ -129,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

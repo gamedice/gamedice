@@ -16,6 +16,7 @@ class Genre(models.Model):
 class Company(models.Model):
     name = models.CharField(max_length=200)
     biography = models.TextField()
+    logo = models.ImageField(upload_to='images/', blank=True)
 
     def __str__(self):
         return self.name

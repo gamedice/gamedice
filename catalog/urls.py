@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import *
+from catalog.views import GamesAPIView, GenreAPIView, CompanyAPIView, TopAPIView, AnonsAPIView, RandomAPIView
 
 router = routers.SimpleRouter()
 router.register(r'game', GamesAPIView),
@@ -13,5 +13,4 @@ router.register(r'random', RandomAPIView),
 
 urlpatterns = [
     path('', include(router.urls)),
-    # path('game/', GamesAPIView.as_view()),
 ]
