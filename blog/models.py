@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Posts(models.Model):
     title = models.CharField(max_length=200)
-    photo = models.ImageField(upload_to='images/posts/', blank=True)
+    photo = models.ImageField(upload_to='images/', blank=True)
     contain = models.TextField(max_length=3000)
     time_created = models.DateTimeField(auto_now_add=True)
     is_published = models.BooleanField(default=False)

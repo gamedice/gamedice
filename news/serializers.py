@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import News
+from news.models import News
 
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
-        exclude = ['user', ]
+        fields = ('id', 'title', 'photo', 'contain', 'time_created', )

@@ -1,17 +1,17 @@
 from rest_framework import serializers
-from .models import Genre, Company, Games
+from catalog.models import Genre, Company, Games
 
 
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = '__all__'
+        fields = ('id', 'name', 'subscribe', )
 
 
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
-        fields = '__all__'
+        fields = ('id', 'name', 'biography', 'logo', )
 
 
 class GamesSerializer(serializers.ModelSerializer):

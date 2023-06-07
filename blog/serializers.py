@@ -1,15 +1,25 @@
 from rest_framework import serializers
-from .models import Posts, Comments
+from blog.models import Posts, Comments
+
 
 class PostsSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField()
+    username = serializers.StringRelatedField(source='user')
+
     class Meta:
         model = Posts
-        fields = '__all__'
+        fields = ('id', 'title', 'photo', 'contain', 'time_created', 'is_published', 'user', 'username', )
+
 
 class CommentsSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField()
-    post = serializers.StringRelatedField()
+    username = serializers.StringRelatedField(source='user')
+
     class Meta:
         model = Comments
-        fields = '__all__'
+
+        # fields = ('post', 'text', 'date', 'user_name', )
+        fields = ('post', 'user', 'username', 'text', 'date', )
+        # read_only_fields = ('post', 'text', 'date', 'user_name', )
+        # extra_kwargs = {'user': {'write_only': True}}
+
+    # def get_user(self, obj):
+    #     return str(obj.user.username)
