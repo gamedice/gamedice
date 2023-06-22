@@ -1,5 +1,15 @@
 .idea
 /_postgres
 /venv
+/htmlcov
+/assets
 .DS_Store
 __pycache__/
+.env
+.coverage
+geckodriver.log
+blog/tests/selenium_tests/geckodriver
+blog/tests/selenium_tests/geckodriver.log
+news/tests/selenium_tests/geckodriver
+
+

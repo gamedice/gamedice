@@ -12,5 +12,4 @@ urlpatterns = [
     path('auth/', include('djoser.urls')),
     path('drf-auth/', include('rest_framework.urls')),
     path('api/v1/users/all', UserListView.as_view()),
-
 ]
