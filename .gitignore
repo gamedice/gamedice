@@ -5,6 +5,7 @@
 /assets
 .DS_Store
 __pycache__/
+/catalog/tests/tests_selenium/geckodriver
 .env
 .coverage
 geckodriver.log

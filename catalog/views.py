@@ -4,8 +4,7 @@ from rest_framework import viewsets
 from catalog.models import Genre, Company, Games
 from catalog.serializers import GenreSerializer, CompanySerializer, GamesSerializer, AnonsSerializer
 from rest_framework import filters
-from django.db.models import Max
-from random import randint
+
 
 
 class GamesFilter(FilterSet):
@@ -52,14 +51,4 @@ class AnonsAPIView(viewsets.ReadOnlyModelViewSet):
     serializer_class = AnonsSerializer
 
 
-class RandomAPIView(viewsets.ReadOnlyModelViewSet):
-    queryset = Games.objects.all()
-    serializer_class = GamesSerializer
 
-    def get_queryset(self):
-        max_id = Games.objects.all().aggregate(max_id=Max("id"))['max_id']
-        while True:
-            pk = randint(1, max_id)
-            category = Games.objects.filter(pk=pk)
-            if category:
-                return category
