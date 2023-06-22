@@ -5,10 +5,10 @@
 /assets
 .DS_Store
 __pycache__/
-.coverage
 /catalog/tests/tests_selenium/geckodriver
-geckodriver.log
 .env
+.coverage
+geckodriver.log
 blog/tests/selenium_tests/geckodriver
 blog/tests/selenium_tests/geckodriver.log
 news/tests/selenium_tests/geckodriver

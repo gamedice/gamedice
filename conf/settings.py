@@ -200,8 +200,6 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
-SERVER_PORT = 8000
-
 URL_FRONT = os.environ.get('URL_FRONT')
 URL_BACK = os.environ.get('URL_BACK')
 
