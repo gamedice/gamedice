@@ -68,13 +68,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-URL_FRONT = os.environ.get('URL_FRONT')
-
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    URL_FRONT,
-)
-
 ROOT_URLCONF = 'conf.urls'
 
 TEMPLATES = [
@@ -206,4 +199,13 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
+
 SERVER_PORT = 8000
+
+URL_FRONT = os.environ.get('URL_FRONT')
+URL_BACK = os.environ.get('URL_BACK')
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+  URL_FRONT,
+)

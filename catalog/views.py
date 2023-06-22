@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django_filters import FilterSet, NumberFilter, AllValuesFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
@@ -17,7 +16,6 @@ class GamesFilter(FilterSet):
     class Meta:
         model = Games
         fields = ('name', 'min_rating', 'max_rating', 'genre_name', 'company_name')
-
 
 
 class GenreAPIView(viewsets.ReadOnlyModelViewSet):

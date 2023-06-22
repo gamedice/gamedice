@@ -15,7 +15,7 @@ class PostsAPIDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CommentsAPIList(generics.ListCreateAPIView):
-    #queryset = Comments.objects.filter(post=post__id)
+    # queryset = Comments.objects.filter(post=post__id)
     # queryset = Comments.objects.all()
     serializer_class = CommentsSerializer
 
