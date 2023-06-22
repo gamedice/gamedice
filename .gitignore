@@ -3,3 +3,9 @@
 /venv
 .DS_Store
 __pycache__/
+/htmlcov
+.coverage
+/catalog/tests/tests_selenium/geckodriver
+geckodriver.log
+.env
+/assets
