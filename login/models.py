@@ -27,4 +27,10 @@ class Favorites(models.Model):
 
 
     def __str__(self):
+
+    class Meta:
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'
+
         return f"{self.user.username}'s favorite game: {self.game.name}"
+
