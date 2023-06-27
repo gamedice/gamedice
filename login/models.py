@@ -19,7 +19,7 @@ class Profile(models.Model):
     like = models.ForeignKey(Favorites, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
     class Meta:
         verbose_name = 'Профиль'

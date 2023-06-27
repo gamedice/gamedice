@@ -9,7 +9,7 @@ class NewsAPIList(generics.ListAPIView):
     serializer_class = NewsSerializer
 
 
-class NewsAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
+class NewsAPIDetailView(generics.RetrieveAPIView):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
 

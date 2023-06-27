@@ -9,7 +9,7 @@ class PostsAPIList(generics.ListCreateAPIView):
     serializer_class = PostsSerializer
 
 
-class PostsAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+class PostsAPIDetail(generics.RetrieveAPIView):
     queryset = Posts.objects.all()
     serializer_class = PostsSerializer
 
@@ -21,6 +21,20 @@ class CommentsAPIList(generics.ListCreateAPIView):
 
     def get_queryset(self, *args, **kwargs):
         return Comments.objects.filter(post=self.kwargs['post_id']).order_by("-date")
+
+
+class UsersPostsAPIList(generics.ListCreateAPIView):
+    serializer_class = PostsSerializer
+
+    def get_queryset(self, *args, **kwargs):
+        return Posts.objects.filter(user=self.kwargs['user_id']).order_by("-time_created")
+
+
+class UsersPostsAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = PostsSerializer
+
+    def get_queryset(self, *args, **kwargs):
+        return Posts.objects.filter(user=self.kwargs['user_id']).order_by("-time_created")
 
 
 
